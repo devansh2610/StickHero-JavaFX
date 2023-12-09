@@ -1,3 +1,7 @@
+Dev Panchal (2022149)
+Devansh Grover (2022151)
+Group 91
+
 Note: Please open module settings and add all the JAVAFX SDK libraries provided in the resources/lib folder if you get the pipeline error.
 Please run the Menu class first only, as other classes are dependent on a Menu object to be passed into their constructor to run.
 Press SpaceBar once the StickHero falls to bring up the GameOver screen.
