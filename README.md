@@ -8,6 +8,37 @@ Press SpaceBar once the StickHero falls to bring up the GameOver screen.
    - The "HIGHSCORES" option loads high scores from a file using the `Highscores` class and displays them in a new stage.
    - The "QUIT" option exits the application using `Platform.exit()`.
 
+**BONUS PARTS:**
+Multithreading:
+The code uses threads (rotateAnimate and moveAnimate) to handle stick rotation and StickHero movement, respectively. Therefore, the code runs on a total of 3 threads, one is the MAIN threadm and the other 2 being the rotateAnimate and moveAnimate threads.
+
+File I/O and Serialization/Deserialization:
+The code uses Serialization and Deserialization to save the scores of the game in a file and load them everytime the gun runs.
+
+Multiple platforms coverage:
+Unlike the original game in which only 2 platforms are visible at a time, we can directly cover multiple platforms in this implementation of the game. For example, if there are 3 platforms in the screen currently, and the user is on platform1 and the stick can extend and cover platform3, then the player can directly go from platform1 to platform3.
+
+Randomization:
+If the player does go for multiple platforms coverage and collects cherries during that, then the player may be randomly rewarded bonus points for this.
+
+**Design Patterns:**
+Factory Method Pattern:
+The createContent() method in the GameOver and Menu class acts like a factory method. It is responsible for creating and returning the root Pane for the game over scene.
+
+Composite Pattern:
+The structure of the MenuItem class, which contains a StackPane with child nodes (Rectangle, HBox, Text), is reminiscent of the Composite pattern where individual objects and compositions of objects are treated uniformly.
+
+Observer Pattern:
+The code doesn't explicitly implement the Observer pattern. However, the use of event handlers (setOnMouseClicked, setOnMousePressed, setOnMouseReleased) in the MenuItem class is a form of event-driven programming, which has similarities to the Observer pattern.
+
+**Input Handling:**
+The code handles keyboard and mouse input. The SPACE key is used to extend the stick, and the left mouse button is used to flip StickHero vertically.
+
+**JUNIT Tests:**
+The Test folder contains JUNIT tests.
+
+
+
 **Class Structure:**
 The Game class extends Application, indicating that it's a JavaFX application.
 The class contains several instance variables to manage the game state, such as the stage (mystage), the game over screen (gameover), and various graphical elements (images, text, rectangles, etc.). These are mostly private, and some public, depending on their usage.
@@ -30,24 +61,6 @@ The game keeps track of the score and the number of cherries collected. The coun
 **Animation and Transitions:**
 The game involves various animations and transitions to move StickHero, extend the stick, rotate StickHero, and transition the camera when StickHero moves to a new section of the level. These are controlled using various functions such as extendStick(), rotateStick(), flipStickhero(), etc. The code employs heavy use of transitions.
 
-**Input Handling:**
-The code handles keyboard and mouse input. The SPACE key is used to extend the stick, and the left mouse button is used to flip StickHero vertically.
-
-**JUNIT Tests:**
-The Test folder contains JUNIT tests.
-
-**BONUS PARTS:**
-Multithreading:
-The code uses threads (rotateAnimate and moveAnimate) to handle stick rotation and StickHero movement, respectively. Therefore, the code runs on a total of 3 threads, one is the MAIN threadm and the other 2 being the rotateAnimate and moveAnimate threads.
-
-File I/O and Serialization/Deserialization:
-The code uses Serialization and Deserialization to save the scores of the game in a file and load them everytime the gun runs.
-
-Multiple platforms coverage:
-Unlike the original game in which only 2 platforms are visible at a time, we can directly cover multiple platforms in this implementation of the game. For example, if there are 3 platforms in the screen currently, and the user is on platform1 and the stick can extend and cover platform3, then the player can directly go from platform1 to platform3.
-
-Randomization:
-If the player does go for multiple platforms coverage and collects cherries during that, then the player may be randomly rewarded bonus points for this.
 
 
 
